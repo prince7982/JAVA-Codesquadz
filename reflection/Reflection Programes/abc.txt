@@ -1,0 +1,5 @@
+Compiled from "PkgTest.java"
+class PkgTest {
+  PkgTest();
+  public static void main(java.lang.String[]);
+}

@@ -12,7 +12,7 @@ public class EqualsIgnoreCase
 		retVal = Str1.equals(Str2);
 		System.out.println("Returned Value = " +retVal);  //true
 		
-		retVal = Str1.equals(Str3);
+		retVal = Str1.equals(Str3);javac -d 
 		System.out.println("Returned Value = " +retVal);  //true
 		
 		retVal = Str1.equalsIgnoreCase(Str4);

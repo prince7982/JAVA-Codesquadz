@@ -8,7 +8,7 @@ one-time print statement.
 */
 
 package p1;
-class Format
+class Format 
 {
 	public static void main(String... s)
 	{

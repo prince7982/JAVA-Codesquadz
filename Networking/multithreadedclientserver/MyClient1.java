@@ -11,7 +11,7 @@ public class MyClient1
 		try
 		{
 			s=new Socket("LocalHost",10);
-			//s=new Socket(52.66.190.48",10);
+			//s=new Socket("52.66.190.48",10);
 			din=new DataInputStream(s.getInputStream());
 			dout=new DataOutputStream(s.getOutputStream());
 			clientChat();
