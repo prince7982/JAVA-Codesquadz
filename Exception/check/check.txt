@@ -1,0 +1,84 @@
+Ques:- program 1
+
+class Throwable extends Object
+{
+	String s;
+	public String toString()
+	{
+		return s;
+	}
+}
+
+class Exception extends Throwable
+{
+	Exception(String s)
+	{
+		this.s=s;
+	}
+}
+
+class Temp
+{
+	public static void main(String... s)
+	{
+		Exception e=new Exception("hello");
+		System.out.println(e);
+	}
+}
+
+
+
+
+
+Ques:- program 2
+
+class Temp
+{
+	public String toString()
+	{
+		return "hello";
+	}
+	public static void main(String... s)
+	{
+		Temp t=new Temp();
+		System.out.println(t);
+	}
+}
+
+
+Ques:- program3
+
+class Emp
+{
+	int age();
+	void get(int age)throws AgeException
+	{
+		if(age<18)
+		{
+			throw new AgeException("invalid age");
+		}
+		else
+		{
+			this.age=age;
+		}
+	}
+}
+public static void main(String... s)
+{
+	Emp e1=new Emp();
+	try
+	{
+		e1.get(10);
+	}
+	catch(AgeException e)
+	{
+		System.out.println(e);
+	}
+}
+class AgeException extends Exception
+{
+	AgeException(String s)
+	{
+		super(s);
+	}
+}
