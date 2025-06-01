@@ -10,7 +10,7 @@ class Notepad
 			rt.exec("C:\\Windows\\explorer.exe");
 			rt.exec("control.exe");
 			rt.exec("calc.exe");
-			//rt.exec("C:\\Program Files (x86)\\Microsoft Office\\Office16\\winword.exe");
+			rt.exec("C:\\Program Files (x86)\\Microsoft Office\\Office15\\winword.exe");
 		}
 		catch(Exception e)
 		{
