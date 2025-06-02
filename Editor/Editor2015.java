@@ -249,7 +249,7 @@ public class Editor2015 extends JFrame implements ActionListener,KeyListener
 					try
 					{
 						result="";
-						Process error = r.exec("C:\\Program Files\\Java\\jdk-23\\bin\\javac.exe -d .   "+filename);
+						Process error = r.exec("C:\\Program Files\\Java\\jdk-23\\bin\\javac.exe  -d  .   "+filename);
 						BufferedReader err = new BufferedReader(new InputStreamReader(error.getErrorStream()));
 						while(true)
 						{
