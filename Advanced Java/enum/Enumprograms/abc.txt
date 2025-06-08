@@ -1,0 +1,9 @@
+Compiled from "MyEnum.java"
+final class myCars extends java.lang.Enum<myCars> {
+  public static final myCars HONDA;
+  public static final myCars BMW;
+  public static final myCars LANDROVER;
+  public static myCars[] values();
+  public static myCars valueOf(java.lang.String);
+  static {};
+}
