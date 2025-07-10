@@ -1,0 +1,16 @@
+A batch update is a batch of updates grouped together, and sent to the database in one 
+"batch", rather than sending the updates one by one.
+
+Sending a batch of updates to the database in one go, is faster than sending them one by one, 
+waiting for each one to finish. There is less network traffic involved in sending one batch 
+of updates (only 1 round trip), and the database might be able to execute some of the updates 
+in parallel. The speed up compared to executing the updates one by one, can be quite big.
+
+You can batch both SQL inserts, updates and deletes. It does not make sense to batch select 
+statements.
+
+There are three ways to execute batch updates:
+
+    Using a Statement  
+    Using a PreparedStatement  
+    Using a CallableStatement  

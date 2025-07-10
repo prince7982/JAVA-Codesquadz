@@ -1,0 +1,26 @@
+
+
+
+===============================
+Creating a Database:
+-------------------------------
+create database codesquadz15;
+use databasename;
+CREATE USER 'codesquadz15'@'localhost' IDENTIFIED BY 'codesquadz15';
+GRANT ALL PRIVILEGES ON *.* TO 'codesquadz15'@'localhost' WITH GRANT OPTION;
+-------------------------------
+CREATE USER 'estore'@'localhost' IDENTIFIED BY 'estore';
+GRANT ALL PRIVILEGES ON *.* TO 'estore'@'localhost' WITH GRANT OPTION;
+
+
+
+
+
+
+
+
+
+
+
+
+Creating a user in MySQL

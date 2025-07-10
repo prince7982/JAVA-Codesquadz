@@ -1,0 +1,1 @@
+create view noida1 as select * from emp101 where name='noida';
