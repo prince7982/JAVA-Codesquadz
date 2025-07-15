@@ -207,6 +207,7 @@ class Practice
 
 
 //Pallindrome program
+/*
 class Practice
 {
 	public static void main(String... s)
@@ -232,3 +233,7 @@ class Practice
 		}
 	}	
 }
+*/
+
+
+
