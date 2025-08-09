@@ -1,0 +1,33 @@
+Limit() Method
+
+To limit the records in MongoDB, use limit() method. limit() method accepts one number type
+argument, which is number of documents to return.
+
+The syntax of limit() method is as follows
+
+> db.COLLECTION_NAME.find().limit(NUMBER)
+> db.users.find().limit(3)
+
+The following example displays 2 documents.
+
+> db.users.find({}, {"name":1, _id:0}).limit(2)
+> db.mycol2.find({}, {}).limit()
+
+By default limit() method will display all documents from the collection without parameter.
+
+---------------------------------------------------------------
+
+Skip() Method
+
+skip() accepts number type argument and skips number of documents.
+
+The syntax of skip() method is as follows
+
+> db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+> db.users.find().limit(3).skip(1)
+
+The following query displays only second found document.
+
+> db.users.find({}, {"name":1,_id:0}).limit(5).skip(3)
+
+>

@@ -1,0 +1,16 @@
+Streams are wrappers around a data source, allowing us to operate with that data source and 
+making bulk processing convenient and fast.
+
+A stream does not store data and, in that sense, is not a data structure. It also never 
+modifies the underlying data source.
+
+A Stream in Java 8 can be defined as a sequence of elements from a source. Streams supports 
+aggregate operations on the elements. The source of elements here refers to a Collection or 
+Array that provides data to the Stream.
+
+Stream keeps the ordering of the elements the same as the ordering in the source. The 
+aggregate operations are operations that allow us to express common manipulations on stream 
+elements quickly and clearly.
+
+Java 8 Streams are designed in such a way that most of the stream operations return a stream. 
+This helps us to create a chain of stream operations. This is called as pipe-lining.

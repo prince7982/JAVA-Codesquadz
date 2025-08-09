@@ -1,0 +1,36 @@
+MongoDB's update() and save() methods can update document.
+
+The update() method update values in the existing document.
+
+The save() method replaces the existing document with the document passed in save() method.
+
+
+
+Update Method
+
+The basic syntax of update() method is as follows
+
+> db.COLLECTION_NAME.update(SELECTION_CRITERIA, UPDATED_DATA)
+
+The following example sets the new title 'New MongoDB Tutorial' of the documents whose title 
+is 'MongoDB Overview'.
+
+> db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}})
+
+By default mongodb will update only single document.
+
+To update multiple documents, set a parameter multi to true.
+
+> db.users.update({'name':'codesquadz7'},{$set:{'password':'virat'}},{multi:true})
+
+
+
+Save Method
+
+The syntax of save() method is shown as follows:
+
+> db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})
+
+For example, the following code replaces the document with the _id '123'
+
+> db.users.save({"_id":123, "name" : "codesquadz18", "password" : "hello1", city:"noida1","phone no":123456 })

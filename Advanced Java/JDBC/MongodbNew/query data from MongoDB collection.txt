@@ -1,0 +1,134 @@
+To query data from MongoDB collection, use MongoDB's find() method.
+
+Syntax
+
+The following code shows the syntax of find() method
+
+>db.COLLECTION_NAME.find()
+
+find() method returns all the documents.
+
+To display the results in a formatted way, use pretty() method.
+
+>db.emp11.find().pretty()
+
+>db.mycol.find().pretty()
+{
+   "_id": ObjectId(2df22ad2222c),
+   "title": "MongoDB Overview",
+   "description": "MongoDB is no sql database",
+   "url": "http://www.codesquadz.com",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "comments": "100"
+}
+>
+
+-----------------------------------------------------------------------------------------------
+
+
+findOne() method returns only one document.
+
+
+
+Where conditions
+
+The following table shows how to do query to a document with conditions.
+
+Operation      Syntax                    Example RDBMS Equivalent
+
+Equality       {<key>:<value>}           db.users.find({"name":"codesquadz7"}).pretty()
+                                         where by = 'codesquadz'
+Less Than      {<key>:{$lt:<value>}}     db.users.find({"salary":{$lt:10000}}).pretty()
+                                         where comments < 50
+Less Than Equals {<key>:{$lte:<value>}}  db.users.find({"salary":{$lte:1012}}).pretty()
+                                         where comments <= 50
+Greater Than   {<key>:{$gt:<value>}}     db.users.find({"salary":{$gt:500}}).pretty() 
+                                         where comments > 50
+Greater Than Equals {<key>:{$gte:<value>}}
+                                         db.users.find({"salary":{$gte:1012}}).pretty()
+                                         where comments >= 50
+Not Equals     {<key>:{$ne:<value>}}     db.users.find({"salary":{$ne:101}}).pretty() 
+                                         where comments != 50
+						
+-----------------------------------------------------------------------------------------------------------
+
+
+AND in MongoDB
+
+To use AND logic in MongoDB, pass multiple keys by separating them by ',' in the find() 
+method as follows.
+
+>db.emp.find({key1:value1, key2:value2}).pretty()
+>db.users.find({name:"codesquadz7",salary:700000}).pretty()
+The following code returns the documents whose by field is codesquadz and title field is 
+
+>db.users.find({"name":"codesquadz3","salary":1000}).pretty()
+{
+   "_id": ObjectId(2df22ad2222c),
+   "title": "MongoDB",
+   "description": "MongoDB is no sql database",
+   "by": "codesquadz",
+   "url": "http://www.codesquadz.com",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "comments": "100"
+}
+>
+
+It equivalent where clause is where by='codesquadz' AND title='MongoDB Overview'.
+-------------------------------------------------------------------------------------------
+
+OR in MongoDB
+
+To query documents based on the OR condition, use $or keyword, as follows:
+
+>db.mycol.find(
+   {
+      $or: [
+         {key1: value1}, {key2:value2}
+      ]
+   }
+).pretty()
+
+The following query returns documents whose by field is 'codesquadz' or title field is 
+'MongoDB Overview'.
+
+>db.users.find({$or:[{"name":"codesquadz7"},{"salary": 5000}]}).pretty()
+{
+   "_id": ObjectId(2df22ad2222c),
+   "title": "MongoDB Overview",
+   "description": "MongoDB is no sql database",
+   "by": "codesquadz",
+   "url": "http://www.codesquadz.com",
+   "tags": ["mongodb", "database", "NoSQL"],
+   "comments": "100"
+}
+>
+
+Using AND and OR together
+
+The following example returns documents whose comments are greater than 100 and whose title 
+is either 'MongoDB Overview' or by is 'codesquadz'.
+
+>db.users.find({"salary":{$gte:100},$or: [{"name":"codesquadz7"},{"password":"virat"}]}).pretty()
+>
+
+Equivalent sql is 'where salary>101 AND (name= 'lalu' OR password='codesquadz')'.
+---------------------------------------------------------------------------------------------------
+
+MongoDB Projection
+
+MongoDB projection is to select only necessary data rather than whole document.
+
+MongoDB's find() method accepts second optional parameter that is list of fields to return.
+By default, MongoDB find() method returns all fields in a document. To select only required
+fields, set list of fields with value 1 or 0. 1 value shows the filed while 0 is used to hide
+the field.
+
+The syntax of find() method with projection is as follows.
+
+>db.COLLECTION_NAME.find({},{KEY:1})
+
+The following example displays the title of the document.
+
+>db.users.find({},{"salary":1, _id:0})
+>

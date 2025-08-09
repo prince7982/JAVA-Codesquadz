@@ -1,0 +1,42 @@
+Run the following command to start the MongoDB server.
+
+
+
+* After installing mongodb make the folder with a name "data" and then create the folder 
+with a name "db" in "data" folder on c:\ drive.
+D:\mongodb\bin>mongod.exe    to start mongo db server
+
+The following code shows how to set the dbpath to different location when starting the 
+MongoDB server.
+
+
+D:\set up\mongodb\bin\mongod.exe --dbpath "d:\set up\mongodb\data"
+
+To run the mongodb client, open another command prompt and issue the following command
+
+D:\mongodb\bin>mongo.exe  
+connecting to: test
+
+To remove MongoDB Service
+
+d:\mongodb\bin>mongod --remove
+-------------------------------------------------------------------------------------------
+
+MongoDB config file
+
+The following code shows how to use config file with MongoDB.
+
+Create a MongoDB config file, it's just a text file, for example: d:\mongodb\mongo.config
+
+##store data here  
+dbpath=D:\mongodb\data
+?
+##all output go here  
+logpath=D:\mongodb\log\mongo.log
+?
+##log read and write operations  
+diaglog=3
+
+Use mongod.exe --config d:\mongodb\mongo.config to start MongoDB server.
+
+d:\mongodb\bin>mongod --config D:\mongodb\mongo.config

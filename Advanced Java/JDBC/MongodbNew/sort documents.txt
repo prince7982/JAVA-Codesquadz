@@ -1,0 +1,18 @@
+To sort documents in MongoDB, use sort() method. sort() method accepts a document containing  
+list of fields along with their sorting order. 1 is used for ascending order while -1 is used  
+for descending order.  
+
+Syntax  
+
+The basic syntax of sort() method is as follows  
+
+>db.COLLECTION_NAME.find().sort({KEY:1})  
+db.users.find().sort({name:-1})  
+
+Example  
+
+The following example will display the documents sorted by title in descending order.  
+
+>db.users.find({},{"name":1, _id:0}).sort({"salary":-1}).pretty()  
+
+The default sorting order for sort() method is ascending order.

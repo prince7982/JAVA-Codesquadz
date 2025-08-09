@@ -1,0 +1,6 @@
+The pretty() Method
+
+To display the results in a formatted way, you can use pretty() method.
+Syntax:
+
+> db.users.find().pretty()

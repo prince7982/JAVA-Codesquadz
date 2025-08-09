@@ -1,0 +1,53 @@
+Java Boxed Stream Example
+
+Java a boxed stream is a stream of the wrapper class instances to simulate a stream of primitives.
+1. What is a Boxed Stream?
+
+In Java 8, if we want to convert a stream of objects to a collection then we can use one of 
+the static methods in the Collectors class.
+
+List<String> strings = Stream.of("appsquadz", "noida", "delhi", "gurugram", "Meerut")
+    .collect(Collectors.toList());
+
+However, the same process doesn't work on streams of primitives.
+//Compilation Error !!
+IntStream.of(1,2,3,4,5)
+    .collect(Collectors.toList());
+
+To convert a stream of primitives, we must first box the elements in their wrapper classes 
+and then collect the wrapped objects in a collection. This type of stream is called boxed stream.
+
+2. IntStream (Stream of int)
+
+Example to convert int stream to List of Integers.
+
+List<Integer> ints = IntStream.of(1,2,3,4,5)
+    .boxed()
+    .collect(Collectors.toList());
+
+System.out.println(ints);
+
+//Stream operations directly
+Optional<Integer> max = IntStream.of(1,2,3,4,5)
+    .boxed()
+    .max(Integer::compareTo);
+
+System.out.println(max);
+
+3. LongStream (Stream of long)
+
+Example to convert long stream to List of Longs.
+List<Long> longs = LongStream.of(1l,2l,3l,4l,5l)
+    .boxed()
+    .collect(Collectors.toList());
+
+System.out.println(longs);
+
+4. DoubleStream (Stream of double)
+
+Example to convert double stream to List of Doubles.
+List<Double> doubles = DoubleStream.of(1d,2d,3d,4d,5d)
+    .boxed()
+    .collect(Collectors.toList());
+
+System.out.println(doubles);

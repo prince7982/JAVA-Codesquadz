@@ -1,0 +1,150 @@
+In MongoDB, both database and table are created automatically when data is inserted for the 
+first time.
+
+We can use the use databaseName command to switch to your database even if the database 
+itself is not created yet.
+
+In the following example, after inserting a new record, database "codesquadz", and table 
+"users" are created on the fly.
+
+
+> use codesquadz
+switched to db codesquadz
+?
+>
+
+> db.users.insert({name:"codesquadz7",pass:"codesquadz2",salary:700000,"add":"noida","college":"lulu"})
+> db.users.find()
+{ "_id" : ObjectId("the id value"), "username" : "codesquadz", "password" : "123456" }
+
+show dbs         -> command lists all databases. use yourDBName command switches to database
+show collections -> command lists all tables in the current selected database.
+
+--------------------------------------------------------------------------------------------------
+
+
+Insert->
+
+To insert a record, uses db.yourTableName.insert({data}) or db.tablename.save({data}).
+
+> db.users.save({username:"Teju1",password:"pappu4.0",salary:101,"city":"patna"})
+> db.users.find()
+
+
+To update a record, uses db.tablename.update({criteria},{$set: {new value}}). In below 
+example, the password of username : "codesquadz" is updated.
+
+> db.users.update({username:"Teju1"},{$set:{password:"keju"}})
+> db.users.find()
+
+--------------------------------------------------------------------------------------------
+
+
+Find->
+
+To find or query records, uses db.tablename.find({criteria}).
+
+List all records:
+
+> db.users.find()
+
+Find records where username is "codesquadz".
+
+> db.users.find({name:"codesquadz7"})
+
+Find records where username's length is less than or equal to 5.
+
+> db.users.find({$where:'this.username.length()<=5'})              
+    Error: error: 
+	{
+        "$err" : "TypeError: Cannot call method 'length' of undefined\n    at _funcs1 (_funcs1:1:44) near '=5' ",
+        "code" : 16722
+	}
+
+Find records where username field is existed.
+
+> db.users.find({username:{$exists : true}})
+
+----------------------------------------------------------------------------------
+
+
+Remove->
+
+To delete a record, uses db.tablename.remove({criteria}).
+
+> db.users.remove({username:"Teju1"})
+> db.users.find()
+
+---------------------------------------------------------------------------------
+
+Index
+
+List all indexes of table "users", by default the column "_id" is always the primary key and 
+created automatically.
+
+> db.users.getIndexes()
+>
+
+To create an index, uses db.tablename.ensureIndex(column).
+
+> db.users.ensureIndex({username:1})
+> db.users.getIndexes()
+
+To drop an index, uses db.tablename.dropIndex(column). In the following example, the index on 
+column "username" is deleted.
+
+> db.users.dropIndex({username:1})
+> db.users.getIndexes()
+>
+
+
+
+To create a unique index, uses db.tablename.ensureIndex({column},{unique:true}). 
+The following code creates an unique index on column "username".
+
+> db.users.ensureIndex({username:1},{unique:true});
+> db.users.getIndexes()
+
+----------------------------------------------------------------------------------
+
+Help
+
+List all available commands.
+
+> help
+  db.help()           help on db methods
+  db.mycol1.help()    help on collection methods
+  ...
+
+db.help() - Shows help on db.
+
+> db.help()
+DB methods:
+  db.addUser(username, password[, readOnly=false])
+  db.auth(username, password)
+  ...
+
+----------------------------------------------------
+
+db.collection.help() -- Shows help on collection (table).
+
+> db.users.help()
+DBCollection help
+  db.users.find().help() - show DBCursor help
+  db.users.count()
+  db.users.dataSize()
+  ...
+
+----------------------------------------------------
+
+db.collection.function.help() - Shows help on function.
+
+> db.users.find().help()
+find() modifiers
+  .sort( { ... } )
+  .limit( n )
+  .skip( n )
+  .count()
+  .size()
+  .explain([verbose])
+  ...

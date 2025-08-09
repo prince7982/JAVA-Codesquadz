@@ -1,0 +1,1 @@
+"C:\Oracle\Middleware\user_projects\domains\prince\servers\AdminServer\logs\AdminServer.txt"

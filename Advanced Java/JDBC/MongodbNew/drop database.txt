@@ -1,0 +1,35 @@
+MongoDB db.dropDatabase() command is used to drop a existing database.
+
+Syntax
+
+The following code shows how to use dropDatabase() command:
+
+db.dropDatabase()
+
+This will delete the selected database. If you have not selected any database, then it will 
+delete default 'test' database
+
+Example
+
+First, check the available databases by using the command show dbs.
+
+>show dbs
+local     0.72225GB
+mydb      0.22222GB
+test      0.22222GB
+>
+
+To delete new database mydb, use the following commands.
+
+>use mydb
+switched to db mydb
+>db.dropDatabase()
+{ "dropped" : "mydb", "ok" : 1 }
+>
+
+now check list of databases
+
+>show dbs
+local     0.72225GB
+test      0.22222GB
+>

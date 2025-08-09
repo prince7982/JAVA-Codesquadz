@@ -1,0 +1,51 @@
+To insert data into MongoDB collection, use MongoDB's insert() or save() method.
+
+Syntax
+
+The following code shows the syntax of insert() command:
+
+>db.COLLECTION_NAME.insert(document)
+
+Example
+
+>db.users.insert({
+   _id: 1007,
+   "title": "MongoDB Tutorial",
+   "description": "MongoDB is no sql database",
+   "by": "codesquadz.com",
+   "url": "http://www.codesquadz.com",
+
+   "likes": 100
+})
+
+mycol is the collection name. If the collection doesn't exist, MongoDB will create this
+collection and then insert document into it.
+
+If we don't specify the _id parameter, then MongoDB assigns an unique ObjectId for this
+document.
+
+
+>db.users.insert(
+{
+    title: 'MongoDB Overview',
+    description: 'MongoDB is no sql database',
+    url: 'http://www.codesquadz.com',
+    tags: ['mongodb', 'database', 'NoSQL','tutorial','big data'],
+    likes: 122
+},
+{
+    title: 'MongoDB setup',
+    description: 'NoSQL database is schema less',
+    url: 'http://www.codesquadz.com',
+    tags: ['mongodb', 'database', 'NoSQL','tutorial','big data'],
+    likes: 22,
+    comments:
+    {
+        user: 'user1',
+        message: 'My first comment',
+        dateCreated: new Date(2014,10,10,2,35),
+        like: 0
+    }
+}
+)
+

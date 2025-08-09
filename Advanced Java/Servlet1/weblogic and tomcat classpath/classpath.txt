@@ -1,0 +1,11 @@
+Weblogic12c application Server->
+
+d:>jar xf weblogic.jar
+
+C:\Oracle\Middleware\wlserver_12.1\server\lib\weblogic.jar
+
+Tomcat9 webserver ->
+
+d:>jar xf servlet-api.jar
+
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\lib\servlet-api.jar
