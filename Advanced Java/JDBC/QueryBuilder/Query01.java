@@ -217,8 +217,7 @@ class QueryEvent implements ActionListener
 				
 
                 Connection c=DriverManager.getConnection(Connect.dsnName);
-                Statement s=c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.
-                CONCUR_UPDATABLE);
+                Statement s=c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 				
                 // now find column names
                 String str=cff.jcom1.getSelectedItem().toString();
@@ -353,9 +352,8 @@ class QueryEvent implements ActionListener
 				       && (cff.jtf1.getText().equals("Enter Value")==false)       ) /////////
                     {
                         cff.criteriaBuffer.append("where ");
-                        cff.criteriaBuffer.append(" "+cff.jcom2.getSelectedItem().toString() );
-                        cff.criteriaBuffer.append(" "+cff.jcom3.getSelectedItem().toString()
-                        );
+                        cff.criteriaBuffer.append(cff.jcom2.getSelectedItem().toString() );
+                        cff.criteriaBuffer.append(" "+cff.jcom3.getSelectedItem().toString());
                         cff.criteriaBuffer.append(" "+cff.jtf1.getText() );
                     }
 				}
@@ -427,9 +425,9 @@ class QueryEvent implements ActionListener
             cff.jf11.setLocation(150,130);
             cff.jf11.setLayout(null);
 
-            JLabel jll=new JLabel("Order by");
-            jll.setBounds(20,10,100,25);
-            cff.jf11.add(jll);
+            JLabel jl1=new JLabel("Order by");
+            jl1.setBounds(20,10,100,25);
+            cff.jf11.add(jl1);
 			
 			cff.jcom11=new JComboBox(Connect.columnNames);
             cff.jcom11.insertItemAt("---None---",0);

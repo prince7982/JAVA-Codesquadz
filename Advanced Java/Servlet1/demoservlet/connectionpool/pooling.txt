@@ -1,0 +1,53 @@
+#Pooling->
+
+The addition of JDBC connection pooling to your application usually involves little or no 
+code modification but can often provide significant benefits in terms of application 
+performance, concurrency and scalability. Improvements such as these can become especially 
+important when your application is tasked with servicing many concurrent users within the 
+requirements of sub second response time
+
+
+There are many scenarios in software architecture where some type of object pooling is 
+employed as a technique to improve application performance. Object pooling is effective for 
+two simple reasons. First, the run time creation of new software objects is often more 
+expensive in terms of performance and memory than the reuse of previously created objects. 
+Second, garbage collection is an expensive process so when we reduce the number of objects to 
+clean up we generally reduce the garbage collection load.
+
+
+In a pooling scenario your application first creates an object pool that can both cache 
+pooled objects and issue objects that are not in use back to the application. For example, 
+pooled objects could be database connections, process threads, server sockets or any other 
+kind of object that may be expensive to create from scratch. As your application first 
+starts asking the pool for objects they will be newly created but when the application has 
+finished with the object it is returned to the pool rather than destroyed. At this point the 
+benefits of object pooling will be realized since, now as the application needs more 
+objects, the pool will be able to issue recycled objects that have previously been returned 
+by the application.
+
+
+
+#JDBC Connection Pooling-->
+
+JDBC connection pooling is conceptually similar to any other form of object pooling. Database 
+connections are often expensive to create because of the overhead of establishing a network 
+connection and initializing a database connection session in the back end database. In turn, 
+connection session initialization often requires time consuming processing to perform user 
+authentication, establish transactional contexts and establish other aspects of the session 
+that are required for subsequent database usage.
+
+Additionally, the database’s ongoing management of all of its connection sessions can impose 
+a major limiting factor on the scalability of your application. Valuable database resources 
+such as locks, memory, cursors, transaction logs, statement handles and temporary tables all 
+tend to increase based on the number of concurrent connection sessions.
+
+All in all, JDBC database connections are both expensive to initially create and then 
+maintain over time. 
+Connection Pooling simply means creating, managing, and maintaining connection objects in 
+advance.
+
+When the connection pool server starts, it creates a predetermined number of Connection 
+objects. A client application would then perform a JNDI lookup to retrieve a reference to a 
+DataSource object that implements the ConnectionPoolDataSource interface. The client 
+application would not need make any special provisions to use the pooled data source; the 
+code would be no different from code written for a nonpooled DataSource.

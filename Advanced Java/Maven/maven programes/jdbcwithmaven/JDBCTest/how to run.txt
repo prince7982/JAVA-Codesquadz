@@ -1,0 +1,9 @@
+mvn exec:java -Dexec.mainClass="com.test.TestRetrive"       //SQL
+mvn exec:java -Dexec.mainClass="com.test.MySql"             //Mysql
+mvn exec:java -Dexec.mainClass="com.test.PostgreSql"        //PostgreSql
+
+
+
+
+
+
